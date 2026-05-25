@@ -1,0 +1,258 @@
+/* Estilos generales responsivos */
+:root {
+  --primary-orange: #FFA500;
+  --secondary-purple: #DDA0DD;
+  --accent-yellow: #FFD700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFA500 50%, #FFFFFF 100%);
+  color: #222;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.08);
+  overflow-x: hidden;
+}
+
+h1,h2,h3 {color: var(--primary-orange);}
+
+a {color: var(--secondary-purple); text-decoration:none;}
+a:hover{ text-decoration: underline; color: var(--accent-yellow); }
+
+button, input[type="submit"] {
+  background: var(--secondary-purple);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+button:hover, input[type="submit"]:hover {
+  background: var(--accent-yellow);
+  color: #000;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   ESTILOS RESPONSIVOS PARA MÓVILES
+   ============================================ */
+
+/* Contenedor principal responsivo */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+  overflow-x: hidden;
+}
+
+/* Tablas responsivas */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  min-width: 600px; /* Fuerza scroll horizontal en móviles */
+}
+
+/* Media Queries para diferentes tamaños */
+@media (max-width: 576px) {
+  /* Celulares pequeños */
+  body {
+    padding: 0.5rem;
+    font-size: 14px;
+  }
+  
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.1rem; }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  button, input[type="submit"] {
+    padding: 0.5rem 0.8rem;
+    font-size: 14px;
+  }
+  
+  input, textarea, select {
+    padding: 0.4rem;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  /* Tablets */
+  body {
+    padding: 0.8rem;
+  }
+  
+  h1 { font-size: 1.7rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+@media (min-width: 769px) {
+  /* Escritorio */
+  body {
+    padding: 1rem;
+  }
+}
+
+/* ============================================
+   ADMIN SIDEBAR - RESPONSIVE
+   ============================================ */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    background: #FFA500;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #DDA0DD;
+}
+
+.sidebar .nav-link.active {
+    color: #FFD700;
+}
+
+/* ============================================
+   MEDIA QUERIES GENERALES
+   ============================================ */
+@media (max-width: 767.98px) {
+    /* Móviles: sidebar como menú superior */
+    .sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    
+    .sidebar-sticky {
+        height: auto;
+        overflow: visible;
+    }
+    
+    main {
+        margin-left: 0 !important;
+        padding: 15px !important;
+    }
+    
+    /* Elementos scrolleables horizontalmente */
+    .scrollable-x {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Cards apilados en móvil */
+    .card {
+        margin-bottom: 15px;
+    }
+    
+    /* Formularios adaptables */
+    .form-group {
+        margin-bottom: 10px;
+    }
+    
+    /* Botones a ancho completo en móvil */
+    .btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    /* Ocultar elementos no esenciales en móvil */
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Desktop: mostrar sidebar */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        padding: 48px 0 0;
+    }
+    
+    .show-mobile-only {
+        display: none !important;
+    }
+}
+
+/* ============================================
+   SCROLL SUAVE Y TOUCH
+   ============================================ */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Habilitar scroll con touch */
+@media (max-width: 767px) {
+  body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Contenedores que permiten scroll horizontal si es necesario */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -15px;
+    padding: 0 15px;
+  }
+}
+
+.error { color: #cc0000; }
+.success { color: #008000; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+table th, table td { border: 1px solid #ddd; padding: 0.3rem; }
